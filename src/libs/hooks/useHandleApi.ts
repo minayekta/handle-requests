@@ -12,7 +12,7 @@ export type ApiResponse = Posts[];
 const useHandleApi = (apiEndpoint:string) => {
     const [data, setData] = useState<ApiResponse | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<ApiError | null>(null);
+    const [error, setError] = useState<any | null>(null);
     const [fetchTrigger, setFetchTrigger] = useState<number>(0);
   
 
@@ -23,7 +23,7 @@ const useHandleApi = (apiEndpoint:string) => {
       setData(response.data);
     } catch (error ) {
       console.log(error)
-      // setError(error);
+      setError(error);
     } finally {
       setLoading(false);
     }
