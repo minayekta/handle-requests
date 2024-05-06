@@ -7,7 +7,11 @@ const BlogPost = () => {
   const { data, loading, error, refetchData } = useHandleApi(posts);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div id="loading-bar-spinner" className="spinner">
+        <div className="spinner-icon"></div>
+      </div>
+    )
   }
 
   if (error) {
